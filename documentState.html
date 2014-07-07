@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        // exercise: add 10 images (progressively) (preferably high res) and compare how
+        // it affects the page load time.
+
+        var arr_times = [];
+        document.onreadystatechange = function (){
+            console.log(document.readyState);
+            arr_times.push({
+                state: document.readyState,
+                time: Date.now()
+            });
+        };
+
+        window.onload = function (){
+            console.log(arr_times);
+        }
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

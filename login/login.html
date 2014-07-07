@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        var user_profiles = localStorage.getItem('user_profiles');
+        user_profiles = JSON.parse(user_profiles);
+        console.log(user_profiles);
+
+        document.addEventListener('DOMContentLoaded', function(){
+            var form = document.forms[0];
+            form.addEventListener('submit', function(event){
+                console.log(event.target.email.value);
+                console.log(event.target.password.value);
+
+                // code to verify user
+
+                event.preventDefault();
+            });
+        });
+
+
+
+    </script>
+</head>
+<body>
+
+<form id="form1">
+    <input type="text" id="email" name="email" placeholder="email"/>
+    <input type="password" name="password" placeholder="password"/>
+    <input type="submit" value="login"/>
+</form>
+
+</body>
+</html>

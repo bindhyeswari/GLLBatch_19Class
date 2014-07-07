@@ -13,12 +13,28 @@ document.addEventListener('DOMContentLoaded', function(){
         moveToNext: function(){
             this.currentSlide++;
             // code to move the slide
-            this.sliderObj.scrollLeft = this.currentSlide * this.slideWidth;
+            var finalPos = this.currentSlide * this.slideWidth;
+            var initPos = this.sliderObj.scrollLeft;
+            var sliderObj = this;
+            var id = setInterval(function (){
+                sliderObj.scrollLeft = initPos++;
+                if (initPos > finalPos)
+                    clearInterval(id);
+            }, 1);
+
+
         },
         moveToPrevious: function(){
             this.currentSlide--;
             // code to move the slide
-            this.sliderObj.scrollLeft = this.currentSlide * this.slideWidth;
+            var finalPos = this.currentSlide * this.slideWidth;
+            var initPos = this.sliderObj.scrollLeft;
+            var sliderObj = this;
+            var id = setInterval(function (){
+                sliderObj.scrollLeft = initPos--;
+                if (initPos < finalPos)
+                    clearInterval(id);
+            }, 1);
         }
 
     };
